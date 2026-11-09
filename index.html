@@ -14,7 +14,7 @@
   .card h2{font-size:1.15rem;margin:0 0 6px}
   .card p{margin:6px 0;color:#333}
   .meta{color:#777;font-size:.85rem;margin:10px 0 0}
-  a.btn{display:inline-block;margin-top:12px;background:#14532d;color:#fff;text-decoration:none;padding:11px 20px;border-radius:8px;font-weight:600}
+  a.btn{display:inline-block;margin-top:12px;background:#14532d;color:#fff;text-decoration:none;padding:11px 20px;border-radius:8px;font-weight:600;cursor:pointer}
   a.btn:hover{background:#0d3f22}
   .steps{background:#eef4ef;border-radius:8px;padding:10px 16px;margin:12px 0 0;font-size:.92rem}
   footer{color:#888;font-size:.8rem;margin-top:28px}
@@ -29,7 +29,7 @@
     <h2>NYC Short-Term Rental Rules Tracker - November 2026 Edition</h2>
     <p>New York City's short-term rental rules (Local Law 18 registration, who may host, platform rules, fines) change often. This one-file tracker lays out the current rules, what changed, and the official sources behind each line.</p>
     <div class="steps">How to get it: click the button - the PDF downloads straight to your device. No email, no account, no payment.</div>
-    <a class="btn" href="NYC_STR_Rules_Tracker_2026-11.pdf" download>Download the free PDF</a>
+    <a class="btn" href="NYC_STR_Rules_Tracker_2026-11.b64" onclick="return dl(event,'NYC_STR_Rules_Tracker_2026-11.b64','NYC_STR_Rules_Tracker_2026-11.pdf')">Download the free PDF</a>
     <p class="meta">Compiled from public NYC Office of Special Enforcement sources (links inside). Not legal advice - verify against the official sources before acting.</p>
   </div>
 
@@ -37,11 +37,29 @@
     <h2>Small Business Grant Deadline Tracker - November 2026</h2>
     <p>A one-page tracker of currently open small-business grant programs with real deadlines, eligibility notes, and application links - so a deadline never slips by unnoticed.</p>
     <div class="steps">How to get it: click the button - the PDF downloads straight to your device. No email, no account, no payment.</div>
-    <a class="btn" href="Small_Business_Grant_Deadline_Tracker_2026-11.pdf" download>Download the free PDF</a>
+    <a class="btn" href="Small_Business_Grant_Deadline_Tracker_2026-11.b64" onclick="return dl(event,'Small_Business_Grant_Deadline_Tracker_2026-11.b64','Small_Business_Grant_Deadline_Tracker_2026-11.pdf')">Download the free PDF</a>
     <p class="meta">Compiled from each program's public page (links inside). Confirm details on the program site before applying.</p>
   </div>
 
   <footer>ClearTrack Guides - updated November 2026. Trackers are compiled from public sources for convenience and are not professional advice.</footer>
 </div>
+<script>
+async function dl(ev, b64url, fname){
+  ev.preventDefault();
+  try{
+    var r = await fetch(b64url);
+    if(!r.ok) throw new Error('fetch failed');
+    var t = (await r.text()).replace(/\s+/g,'');
+    var bin = atob(t);
+    var arr = new Uint8Array(bin.length);
+    for(var i=0;i<bin.length;i++) arr[i]=bin.charCodeAt(i);
+    var url = URL.createObjectURL(new Blob([arr],{type:'application/pdf'}));
+    var a = document.createElement('a');
+    a.href=url; a.download=fname; document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 4000);
+  }catch(e){ window.location.href = b64url; }
+  return false;
+}
+</script>
 </body>
 </html>
