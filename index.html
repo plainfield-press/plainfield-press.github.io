@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ClearTrack Guides — Verified reference guides</title>
-<meta name="description" content="Independent, edition-dated reference guides. Every fact checked against the official source on the date printed on the cover. Free launch editions.">
+<meta name="description" content="Independent, edition-dated reference guides. Every fact checked against the official source on the date printed on the cover.">
 <style>
   :root{
     --paper:#faf9f6; --ink:#1c2120; --accent:#14532d; --rule:#d9d5cb; --gray:#5d6660;
@@ -40,12 +40,17 @@
   .preview{display:block;border:1px solid var(--rule);background:#fff;padding:8px}
   .preview img{display:block;width:100%;height:auto}
   .preview figcaption{font-size:.72rem;color:var(--gray);padding-top:6px;text-align:center}
-  a.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;
+  a.btn,button.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;border:none;
     padding:10px 22px;font-size:.88rem;font-weight:600;letter-spacing:.04em;border-radius:3px;cursor:pointer}
-  a.btn:hover{background:#0d3f22}
+  a.btn:hover,button.btn:hover{background:#0d3f22}
   .priceline{display:flex;align-items:baseline;gap:10px;margin:0 0 14px}
   .price{font-size:1.3rem;font-weight:600}
   .pricenote{font-size:.82rem;color:var(--gray)}
+  .codelink{display:inline-block;background:none;border:none;padding:0;margin:10px 0 0;font-size:.8rem;
+    color:var(--gray);text-decoration:underline;cursor:pointer}
+  .codelink:hover{color:var(--ink)}
+  .codearea{display:none;margin-top:12px}
+  .codearea.open{display:block}
   .redeem{display:flex;gap:8px;align-items:stretch;max-width:420px}
   .redeem input{flex:1;border:1px solid var(--rule);background:#fff;padding:9px 12px;font-size:.9rem;
     font-family:ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;border-radius:3px}
@@ -54,11 +59,18 @@
   .redeemmsg{font-size:.84rem;margin-top:8px;min-height:1.2em}
   .redeemmsg.ok{color:var(--accent);font-weight:600}
   .redeemmsg.bad{color:#9b1c1c}
-  .dlzone{display:none}
+  .codenote{font-size:.78rem;color:var(--gray);margin-top:8px}
+  .dlzone{display:none;margin-top:12px}
   .unlocked .dlzone{display:block}
-  .unlocked .redeem,.unlocked .codenote{display:none}
-  .codenote{font-size:.8rem;color:var(--gray);margin-top:8px}
-  .freenote{font-size:.8rem;color:var(--gray);margin-top:8px}
+  .unlocked .buyline{display:none}
+
+  .modal{position:fixed;inset:0;background:rgba(28,33,32,.45);display:none;align-items:center;justify-content:center;padding:20px;z-index:10}
+  .modal.open{display:flex}
+  .modal .card{background:#fff;max-width:430px;width:100%;padding:26px 26px 22px;border:1px solid var(--rule);border-radius:4px;box-shadow:0 10px 40px rgba(0,0,0,.18)}
+  .modal h3{margin:0 0 8px;font-size:1.1rem}
+  .modal p{font-size:.88rem;color:var(--gray);margin:0 0 14px}
+  .modal .close{background:none;border:1px solid var(--rule);padding:8px 16px;font-size:.82rem;border-radius:3px;cursor:pointer;color:var(--ink)}
+  .modal .gocode{background:none;border:none;padding:0;margin-left:14px;font-size:.82rem;color:var(--accent);text-decoration:underline;cursor:pointer}
 
   footer{border-top:1px solid var(--rule);margin-top:20px;padding:24px 0 46px;font-size:.82rem;color:var(--gray)}
   footer h3{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);margin:0 0 8px;font-weight:600}
@@ -86,9 +98,9 @@
   </section>
 
   <h1 class="line">Current editions</h1>
-  <p class="lede">Each guide carries its regular price; during the November launch a promo code drops it to $0. Enter the code, the download unlocks. No account, no email, no card - we collect nothing.</p>
+  <p class="lede">Instant PDF download. New editions are issued when the underlying rules or deadlines change.</p>
 
-  <article class="entry">
+  <article class="entry" data-product="str">
     <div>
       <figure class="preview"><img data-b64="prev-str.b64" alt="First page preview of the NYC Short-Term Rental Rules Tracker"><figcaption>Actual first page</figcaption></figure>
     </div>
@@ -103,18 +115,21 @@
         <li>Every claim tied to one of 6 official NYC Office of Special Enforcement pages</li>
       </ul>
       <div class="chips"><span class="chip">November 2026 edition</span><span class="chip">3 pages</span><span class="chip">Sources verified Nov 8, 2026</span></div>
-      <div class="priceline"><span class="price">$9.00</span><span class="pricenote">one-time &middot; free with a launch code during November</span></div>
-      <div class="redeemwrap">
-        <div class="redeem"><input type="text" placeholder="Enter launch code" aria-label="Launch code" data-code="STRFREE"><button type="button">Redeem</button></div>
-        <div class="redeemmsg" aria-live="polite"></div>
-        <div class="codenote">Launch promotion: a valid code makes the full guide $0. No payment is collected - this page has no card field at all.</div>
-        <div class="dlzone"><a class="btn" href="NYC_STR_Rules_Tracker_2026-11.b64" onclick="return dl(event,'NYC_STR_Rules_Tracker_2026-11.b64','NYC_STR_Rules_Tracker_2026-11.pdf')">Download the PDF</a></div>
+      <div class="priceline"><span class="price">$9.00</span><span class="pricenote">one-time &middot; PDF download</span></div>
+      <div class="buyline">
+        <button type="button" class="btn" data-buy="str">Buy this guide</button><br>
+        <button type="button" class="codelink">Have a code?</button>
       </div>
-      <div class="freenote">Free launch edition. Not legal advice.</div>
+      <div class="codearea">
+        <div class="redeem"><input type="text" placeholder="Enter code" aria-label="Code" data-code="STRFREE"><button type="button">Redeem</button></div>
+        <div class="redeemmsg" aria-live="polite"></div>
+        <div class="codenote">A valid code unlocks the full download at no charge. No card is collected on this page.</div>
+      </div>
+      <div class="dlzone"><a class="btn" href="NYC_STR_Rules_Tracker_2026-11.b64" onclick="return dl(event,'NYC_STR_Rules_Tracker_2026-11.b64','NYC_STR_Rules_Tracker_2026-11.pdf')">Download the PDF</a></div>
     </div>
   </article>
 
-  <article class="entry">
+  <article class="entry" data-product="grant">
     <div>
       <figure class="preview"><img data-b64="prev-grant.b64" alt="First page preview of the Small Business Grant Deadline Tracker"><figcaption>Actual first page</figcaption></figure>
     </div>
@@ -129,18 +144,21 @@
         <li>Expired programs are removed, not recycled</li>
       </ul>
       <div class="chips"><span class="chip">November 2026 edition</span><span class="chip">2 pages</span><span class="chip">Deadlines verified Nov 8, 2026</span></div>
-      <div class="priceline"><span class="price">$7.00</span><span class="pricenote">one-time &middot; free with a launch code during November</span></div>
-      <div class="redeemwrap">
-        <div class="redeem"><input type="text" placeholder="Enter launch code" aria-label="Launch code" data-code="GRANTFREE"><button type="button">Redeem</button></div>
-        <div class="redeemmsg" aria-live="polite"></div>
-        <div class="codenote">Launch promotion: a valid code makes the full guide $0. No payment is collected - this page has no card field at all.</div>
-        <div class="dlzone"><a class="btn" href="Small_Business_Grant_Deadline_Tracker_2026-11.b64" onclick="return dl(event,'Small_Business_Grant_Deadline_Tracker_2026-11.b64','Small_Business_Grant_Deadline_Tracker_2026-11.pdf')">Download the PDF</a></div>
+      <div class="priceline"><span class="price">$7.00</span><span class="pricenote">one-time &middot; PDF download</span></div>
+      <div class="buyline">
+        <button type="button" class="btn" data-buy="grant">Buy this guide</button><br>
+        <button type="button" class="codelink">Have a code?</button>
       </div>
-      <div class="freenote">Free launch edition. Not financial or legal advice.</div>
+      <div class="codearea">
+        <div class="redeem"><input type="text" placeholder="Enter code" aria-label="Code" data-code="GRANTFREE"><button type="button">Redeem</button></div>
+        <div class="redeemmsg" aria-live="polite"></div>
+        <div class="codenote">A valid code unlocks the full download at no charge. No card is collected on this page.</div>
+      </div>
+      <div class="dlzone"><a class="btn" href="Small_Business_Grant_Deadline_Tracker_2026-11.b64" onclick="return dl(event,'Small_Business_Grant_Deadline_Tracker_2026-11.b64','Small_Business_Grant_Deadline_Tracker_2026-11.pdf')">Download the PDF</a></div>
     </div>
   </article>
 
-  <article class="entry">
+  <article class="entry" data-product="food">
     <div>
       <figure class="preview"><img data-b64="prev-food.b64" alt="Preview page of the NYC Food Protection Exam Prep"><figcaption>Actual interior page</figcaption></figure>
     </div>
@@ -155,14 +173,17 @@
         <li>Direct links to the free official course manual and study guide</li>
       </ul>
       <div class="chips"><span class="chip">November 2026 edition</span><span class="chip">3 pages</span><span class="chip">Facts verified Nov 8, 2026</span></div>
-      <div class="priceline"><span class="price">$12.00</span><span class="pricenote">one-time &middot; free with a launch code during November</span></div>
-      <div class="redeemwrap">
-        <div class="redeem"><input type="text" placeholder="Enter launch code" aria-label="Launch code" data-code="FOODFREE"><button type="button">Redeem</button></div>
-        <div class="redeemmsg" aria-live="polite"></div>
-        <div class="codenote">Launch promotion: a valid code makes the full guide $0. No payment is collected - this page has no card field at all.</div>
-        <div class="dlzone"><a class="btn" href="NYC_Food_Protection_Exam_Prep_2026-11.b64" onclick="return dl(event,'NYC_Food_Protection_Exam_Prep_2026-11.b64','NYC_Food_Protection_Exam_Prep_2026-11.pdf')">Download the PDF</a></div>
+      <div class="priceline"><span class="price">$12.00</span><span class="pricenote">one-time &middot; PDF download</span></div>
+      <div class="buyline">
+        <button type="button" class="btn" data-buy="food">Buy this guide</button><br>
+        <button type="button" class="codelink">Have a code?</button>
       </div>
-      <div class="freenote">Free launch edition. Independent study aid, not the official course.</div>
+      <div class="codearea">
+        <div class="redeem"><input type="text" placeholder="Enter code" aria-label="Code" data-code="FOODFREE"><button type="button">Redeem</button></div>
+        <div class="redeemmsg" aria-live="polite"></div>
+        <div class="codenote">A valid code unlocks the full download at no charge. No card is collected on this page.</div>
+      </div>
+      <div class="dlzone"><a class="btn" href="NYC_Food_Protection_Exam_Prep_2026-11.b64" onclick="return dl(event,'NYC_Food_Protection_Exam_Prep_2026-11.b64','NYC_Food_Protection_Exam_Prep_2026-11.pdf')">Download the PDF</a></div>
     </div>
   </article>
 
@@ -172,6 +193,15 @@
     <p>ClearTrack Guides is independent. Nothing here is legal, financial, or professional advice, and no agency or funder named in a guide endorses it. Questions and corrections are welcome and future editions credit fixes.</p>
     <p>&copy; 2026 ClearTrack Guides.</p>
   </footer>
+</div>
+
+<div class="modal" id="buymodal" role="dialog" aria-modal="true" aria-labelledby="buytitle">
+  <div class="card">
+    <h3 id="buytitle">Purchases open soon</h3>
+    <p>Checkout for this guide is not open yet - we are a small new shop and are still setting up payments. Right now, early access is by code: a valid code unlocks the full download at no charge. Nothing is charged on this page, and no card is collected.</p>
+    <button type="button" class="close" id="buyclose">Close</button>
+    <button type="button" class="gocode" id="buygocode">I have a code</button>
+  </div>
 </div>
 
 <script>
@@ -192,14 +222,60 @@ async function dl(ev, b64url, fname){
   return false;
 }
 
+function track(what){
+  try{
+    if(window.goatcounter && window.goatcounter.count){
+      window.goatcounter.count({path: what, title: what, event: true});
+    }
+    var k = 'ct_' + what;
+    localStorage.setItem(k, (parseInt(localStorage.getItem(k)||'0',10)+1).toString());
+  }catch(e){}
+}
+
+var modal = document.getElementById('buymodal');
+var currentEntry = null;
+document.querySelectorAll('[data-buy]').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    currentEntry = btn.closest('.entry');
+    track('buy-intent-' + btn.getAttribute('data-buy'));
+    modal.classList.add('open');
+  });
+});
+document.getElementById('buyclose').addEventListener('click', function(){ modal.classList.remove('open'); });
+modal.addEventListener('click', function(e){ if(e.target === modal){ modal.classList.remove('open'); } });
+document.getElementById('buygocode').addEventListener('click', function(){
+  modal.classList.remove('open');
+  if(currentEntry){
+    var link = currentEntry.querySelector('.codelink');
+    var area = currentEntry.querySelector('.codearea');
+    if(area && !area.classList.contains('open')){ area.classList.add('open'); if(link){ link.style.display='none'; } }
+    var inp = currentEntry.querySelector('.redeem input');
+    if(inp){ inp.focus(); }
+  }
+});
+
+document.querySelectorAll('.codelink').forEach(function(link){
+  link.addEventListener('click', function(){
+    var area = link.closest('.entry').querySelector('.codearea');
+    area.classList.add('open');
+    link.style.display = 'none';
+    var inp = area.querySelector('input');
+    if(inp){ inp.focus(); }
+  });
+});
+
 var VALID = {STRFREE:1, GRANTFREE:1, FOODFREE:1, LAUNCH:1};
 document.querySelectorAll('.redeem').forEach(function(box){
   var input = box.querySelector('input'), msg = box.parentElement.querySelector('.redeemmsg');
-  var entry = box.closest('.entry'), zone = box.parentElement.querySelector('.dlzone');
+  var entry = box.closest('.entry'), zone = entry.querySelector('.dlzone');
   var key = 'ct_unlock_' + input.getAttribute('data-code');
   function unlock(announce){
     entry.classList.add('unlocked');
-    if(announce){ msg.className='redeemmsg ok'; msg.textContent='Code accepted - the download is unlocked.'; zone.querySelector('a').click(); }
+    if(announce){
+      track('redeem-' + entry.getAttribute('data-product'));
+      msg.className='redeemmsg ok'; msg.textContent='Code accepted - the download is unlocked.';
+      zone.querySelector('a').click();
+    }
   }
   if(localStorage.getItem(key)==='1' || localStorage.getItem('ct_unlock_LAUNCH')==='1'){ unlock(false); msg.className='redeemmsg ok'; msg.textContent='Unlocked.'; }
   box.querySelector('button').addEventListener('click', function(){
@@ -215,7 +291,8 @@ document.querySelectorAll('.redeem').forEach(function(box){
   });
   input.addEventListener('keydown', function(e){ if(e.key==='Enter'){ e.preventDefault(); box.querySelector('button').click(); } });
 });
-document.querySelectorAll('img[data-b64].forEach(function(img){
+
+document.querySelectorAll('img[data-b64]').forEach(function(img){
   fetch(img.getAttribute('data-b64')).then(function(r){return r.text();}).then(function(t){
     var bin = atob(t.replace(/\s+/g,''));
     var arr = new Uint8Array(bin.length);
