@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://plainfield-press.github.io/sitemap.xml
