@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deadline Desk — Grant and deadline monitoring for small businesses</title>
+<meta name="description" content="A proposed grant-deadline monitoring service. Automated monitoring and deadline-change alerts are not live.">
+<style>
+  :root{ --paper:#f7f1e3; --ink:#2b2118; --rust:#a34a1f; --muted:#6f6353; --line:#d8cbb4; --card:#fffdf7; }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:Georgia,"Iowan Old Style","Times New Roman",serif;
+    line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:0 22px}
+  .sans{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+
+  .dateline{border-bottom:3px double var(--line);padding:14px 0;display:flex;justify-content:space-between;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .masthead{text-align:center;padding:34px 0 22px;border-bottom:1px solid var(--line)}
+  .masthead h1{font-size:2.6rem;margin:0;font-weight:700;letter-spacing:-.01em}
+  .masthead .rule{width:64px;height:3px;background:var(--rust);margin:14px auto 12px}
+  .masthead p{color:var(--muted);font-size:.98rem;margin:0;font-style:italic}
+
+  .lede{padding:26px 0;font-size:1.06rem}
+  .lede p{margin:0 0 14px}
+  .lede b{color:var(--rust)}
+
+  .watchlist{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0;margin-bottom:26px}
+  .watchlist h2{font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;font-family:ui-sans-serif,system-ui,sans-serif;font-weight:600}
+  .watchlist ul{margin:0;padding-left:20px;font-size:.94rem}
+  .watchlist li{margin-bottom:6px}
+
+  .brief{background:var(--card);border:1px solid var(--line);padding:22px 24px;margin-bottom:28px}
+  .brief .bh{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:12px}
+  .brief .bh b{font-size:1.05rem}
+  .brief .bh span{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-family:ui-sans-serif,system-ui,sans-serif}
+  .brief p{font-size:.92rem;color:var(--muted);margin:0 0 10px}
+  .brief p b{color:var(--ink)}
+
+  .offer{text-align:center;padding:6px 0 36px}
+  .price{font-size:2.2rem;font-weight:700}
+  .per{color:var(--muted);font-size:.9rem}
+  .buy{display:inline-block;margin-top:14px;background:var(--rust);color:#fff;border:none;padding:13px 34px;
+    font-size:.95rem;font-weight:700;border-radius:4px;cursor:pointer;font-family:ui-sans-serif,system-ui,sans-serif;letter-spacing:.03em}
+  .buy:hover{background:#8c3f19}
+  .fine{color:var(--muted);font-size:.78rem;margin-top:12px;font-family:ui-sans-serif,system-ui,sans-serif}
+
+  footer{border-top:3px double var(--line);padding:20px 0 44px;color:var(--muted);font-size:.8rem}
+  footer p{margin:0 0 8px}
+
+  .modal{position:fixed;inset:0;background:rgba(43,33,24,.5);display:none;align-items:center;justify-content:center;padding:20px;z-index:10}
+  .modal.open{display:flex}
+  .modal .card{background:var(--card);border:1px solid var(--line);max-width:440px;width:100%;padding:26px}
+  .modal h3{margin:0 0 8px;font-size:1.1rem}
+  .modal p{font-size:.9rem;color:var(--muted);margin:0 0 16px}
+  .modal a{color:var(--rust)}
+  .modal .close{background:none;border:1px solid var(--line);padding:8px 18px;font-size:.82rem;cursor:pointer;color:var(--ink);font-family:ui-sans-serif,system-ui,sans-serif}
+
+  @media (max-width:600px){ .masthead h1{font-size:1.9rem} }
+</style>
+<style>.honest{max-width:820px;margin:0 auto;padding:44px 24px 60px;line-height:1.7}.honest h1{font-size:clamp(28px,4vw,44px);line-height:1.18;max-width:24ch;margin:0 0 24px;text-align:left;color:#0f3d91}.honest h2{font-size:21px;letter-spacing:0;text-transform:none;text-align:left;margin:28px 0 12px;color:#0f3d91}.honest p{margin:14px 0;max-width:65ch}.honest .state{border-left:4px solid #0f3d91;padding:12px 18px;background:#fff;color:#222}.honest a{color:#0f3d91;overflow-wrap:anywhere}.honest .interest{display:inline-block;padding:12px 18px;margin:12px 0;background:#0f3d91;color:#fff;text-decoration:none}.honest footer{font-size:14px;color:#555;margin-top:32px}.honest .label{font:600 12px system-ui;letter-spacing:.12em;text-transform:uppercase;color:#0f3d91}</style></head>
+<body><header><div class="wrap"><b>Deadline Desk</b></div></header><main class="honest"><div class="label">Deadline Desk | Prelaunch</div><h1>Grant dates need a source, not a promise.</h1><p class="state">A proposed grant-deadline monitoring service. Automated monitoring and deadline-change alerts are not live. No paying customers are claimed. Nothing is for sale on this page.</p><h2>A dated federal-opportunity snapshot</h2><p><a href="sample.html">Read the November 9, 2026 snapshot</a>. It is historical, not a statement of what is open today, not a client watch and not an eligibility finding.</p><p>Federal opportunities can have narrow applicant restrictions. Check the funder's current notice before relying on a deadline or applying.</p><h2>Interest only, not an order</h2><p>Proposed price: $12 per month. This is an unvalidated test price, not an active plan. No payment is collected, no work starts by clicking, and no launch date or delivery time is promised.</p><a class="interest" href="mailto:deadlinedesk@mail.tab.bot?subject=duemerganser%20interest">Email a question or express interest</a><p>The link opens your email app. You decide whether to send. Expressing interest does not create a subscription, order or obligation.</p><footer>Prelaunch status checked November 10, 2026. We distinguish source research, interest, customer work and revenue. They are not interchangeable.</footer></main><script data-goatcounter="https://deadlinedesk.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body></html>
